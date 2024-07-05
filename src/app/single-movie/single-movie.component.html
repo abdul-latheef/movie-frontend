@@ -1,0 +1,32 @@
+<section class="p-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="" alt="" src={{movie?.cover}} class="img-fluid">
+            </div>
+            <div class="col-md-9">
+                <h4>{{movie?.name}}</h4>
+                <p>{{type}}</p>
+                <app-star-rating [rating]="movie.rating" [isReadonly]="true"></app-star-rating>
+                <p>Rating: {{movie.rating}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div *ngIf="movie?.reviews?.length > 0">
+            <div *ngFor="let review of movie?.reviews">
+                <h4>Review Details</h4>
+                <p class="mb-0"><b>Author:</b> {{review.author}}</p>
+                <p class="mb-0"><b>Published on:</b> {{review.published_on}}</p>
+                <p class="mb-0"><b>Comments:</b> {{review.review}}</p>
+                <app-star-rating [rating]="review.rating" [isReadonly]="true"></app-star-rating>
+            </div>
+        </div>
+        <div *ngIf="movie?.reviews?.length === 0">
+            <h4>Review Details</h4>
+            <p>No reviews yet</p>
+        </div>
+    </div>
+</section>

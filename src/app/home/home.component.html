@@ -1,0 +1,89 @@
+<div class="home-wrapper mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div>
+                    <h4 class="border-bottom pb-2 mb-4">Movies</h4>
+                    <div class="row">
+                        <ng-container *ngFor="let tranding of trandingMovies">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img [src]="tranding.cover" class="card-img-top" alt="..." (click)="movieDetails('trending', tranding.id)">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{tranding.name}}</h5>
+                                  <p class="card-text">{{tranding.id}}</p>
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                        <app-star-rating [rating]="tranding.rating" [isReadonly]="true"></app-star-rating>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="card-text">{{tranding.rating}}</p>
+                                    </div>
+                                    
+                                  </div>
+                                  
+                                    
+                                <!-- <hr />
+                                <pre>Rate: <b>{{ rating }}</b></pre>
+                                <button class="btn btn-sm btn-outline-primary me-2" (click)="rating = 1.35">1.35</button>
+                                <button class="btn btn-sm btn-outline-primary me-2" (click)="rating = 4.72">4.72</button> -->
+                                  
+                                </div>
+                              </div>
+                        </div>
+                        </ng-container>
+                    </div>
+                    
+                    <h4 class="border-bottom pb-2 mb-4 mt-4">Popular Movies</h4>
+                    <div class="row">
+                        <ng-container *ngFor="let popular of popularMovies">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <img [src]="popular.cover" class="card-img-top" alt="..." (click)="movieDetails('popular', popular.id)">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{popular.name}}</h5>
+                                  <p class="card-text">{{popular.id}}</p>
+                                  <div class="row">
+                                    <div class="col-md-8">
+                                        <app-star-rating [rating]="popular.rating" [isReadonly]="true"></app-star-rating>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="card-text">{{popular.rating}}</p>
+                                    </div>
+                                    
+                                  </div>
+                                  
+                                    
+                                <!-- <hr />
+                                <pre>Rate: <b>{{ rating }}</b></pre>
+                                <button class="btn btn-sm btn-outline-primary me-2" (click)="rating = 1.35">1.35</button>
+                                <button class="btn btn-sm btn-outline-primary me-2" (click)="rating = 4.72">4.72</button> -->
+                                  
+                                </div>
+                              </div>
+                        </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4 class="border-bottom pb-2 mb-4">Theater Movies</h4>
+                    <div class="row">
+                        <ng-container *ngFor="let theater of theatreMovies">
+                            <h5 class="card-title" (click)="movieDetails('theater', theater.id)">{{theater.name}}</h5>
+                            <p class="card-text">{{theater.id}}</p>
+                            <div class="row">
+                              <div class="col-md-9">
+                                  <app-star-rating [rating]="theater.rating" [isReadonly]="true"></app-star-rating>
+                              </div>
+                              <div class="col-md-3">
+                                  <p class="card-text">{{theater.rating}}</p>
+                              </div>
+                            </div>
+                            <hr>
+                        </ng-container>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
